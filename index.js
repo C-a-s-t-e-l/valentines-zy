@@ -20,23 +20,7 @@ document.getElementById("no-btn").addEventListener("click", function () {
     noBtn.style.transform = `translate(${randomX - btnRect.left}px, ${randomY - btnRect.top}px)`;
 
     
-    const audioFiles = [
-        "/audio/office-no.mp3",
-        "/audio/no-x5-95904.mp3",
-        "/audio/no-no-no-no-no-katt16-102131.mp3",
-        "/audio/oh-no-125748.mp3"
-    ];
-
-    let currentAudio = document.querySelector("audio");
-    if (currentAudio) {
-        currentAudio.pause();
-        currentAudio.currentTime = 0;
-        currentAudio.remove();
-    }
-
-    const newAudio = new Audio(audioFiles[Math.floor(Math.random() * audioFiles.length)]);
-    newAudio.play();
-    document.body.appendChild(newAudio);
+   
 
     
     let dialog = document.querySelector(".dialog");
