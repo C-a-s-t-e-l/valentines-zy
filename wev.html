@@ -79,8 +79,13 @@
     </div>
     <script src="audio.js"></script>
     <script>
-        function sendEmail(event) {
+         function sendEmail(event) {
             event.preventDefault();
+
+            const orderButton = document.querySelector("button[type='submit']");
+            const movieContainer = document.getElementById("movie-container");
+
+
 
             const name = document.getElementById("name").value;
             const movie = document.getElementById("movie").value;
@@ -92,6 +97,9 @@
 
             const mailtoLink = `mailto:ezzyllena@gmail.com?subject=${subject}&body=${body}`;
             window.location.href = mailtoLink;
+
+
+            movieContainer.innerHTML = `<h2>See you then, it's a date! 💖</h2>`;
         }
 
         function toggleDropdown(id) {
