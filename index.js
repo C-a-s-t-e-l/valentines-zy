@@ -71,5 +71,5 @@ document.getElementById("no-btn").addEventListener("click", function () {
         setTimeout(() => {
             dialog.remove();
         }, 500);
-    }, 1500);
+    }, 3000);
 });
