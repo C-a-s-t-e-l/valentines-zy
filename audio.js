@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
     if (!window.persistedAudio) {
-        audio = new Audio("/audio/Space Date..mp3");
+        audio = new Audio("audio/Space Date..mp3");
         audio.loop = true; 
         audio.volume = 0.5; 
 
