@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes</title>
+    <link rel="icon" type="image/x-icon" href="/images/chikin.jpg">
+    <link rel="stylesheet" href="ehehe.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pacifico&display=swap"
+        rel="stylesheet">
+</head>
+
+<body id="ehehe-body">
+    <div id="ehehe-container">
+        <h1>Are you free on Friday? ehehe 😏</h1>
+        <h2>Movie date? 🎥</h2>
+
+        <div class="container">
+
+            <div class="options">
+                <button class="button-82-pushable" role="button" id="yes-btn">
+                    <span class="button-82-shadow"></span>
+                    <span class="button-82-edge"></span>
+                    <span class="button-82-front text">
+                        Yes
+                    </span>
+                </button>
+                <button class="button-82-pushable" role="button" id="no-btn">
+                    <span class="button-82-shadow"></span>
+                    <span class="button-82-edge no"></span>
+                    <span class="button-82-front text no">
+                        No
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="audio.js"></script>
+    <script>
+        document.getElementById("no-btn").addEventListener("click", function () {
+            const noBtn = this;
+
+            const boundarySize = 200;
+            const btnRect = noBtn.getBoundingClientRect();
+
+            const maxX = Math.min(boundarySize - btnRect.width, window.innerWidth - btnRect.width);
+            const maxY = Math.min(boundarySize - btnRect.height, window.innerHeight - btnRect.height);
+
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
+
+            noBtn.style.transition = "transform 0.3s ease-in-out";
+            noBtn.style.transform = `translate(${randomX - btnRect.left}px, ${randomY - btnRect.top}px)`;
+
+            const audioFiles = [
+                "/audio/office-no.mp3",
+                "/audio/no-x5-95904.mp3",
+                "/audio/no-no-no-no-no-katt16-102131.mp3",
+                "/audio/oh-no-125748.mp3"
+            ];
+
+            let currentAudio = document.querySelector("audio");
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+                currentAudio.remove();
+            }
+
+            const newAudio = new Audio(audioFiles[Math.floor(Math.random() * audioFiles.length)]);
+            newAudio.play();
+            document.body.appendChild(newAudio);
+
+            let dialog = document.querySelector(".dialog");
+            if (!dialog) {
+                dialog = document.createElement("div");
+                dialog.classList.add("dialog");
+                document.body.appendChild(dialog);
+            }
+
+            const messages = [
+                "Bebi...",
+                "Why naman ayaw mo? 😢",
+                "Really?",
+                "Isa, Iiyak 'ko 😭",
+                "Please say yes 🥺",
+                "I love you :'<",
+                "Please lang 😭",
+                "Bebi naman ehh"
+            ];
+            dialog.textContent = messages[Math.floor(Math.random() * messages.length)];
+
+            function updateDialogPosition() {
+                const newBtnRect = noBtn.getBoundingClientRect();
+                dialog.style.left = `${newBtnRect.left + window.scrollX + newBtnRect.width / 2 - dialog.offsetWidth / 2}px`;
+                dialog.style.top = `${newBtnRect.top + window.scrollY - dialog.offsetHeight - 10}px`;
+            }
+
+            let followInterval = setInterval(updateDialogPosition, 10);
+
+            setTimeout(() => {
+                clearInterval(followInterval);
+                setTimeout(() => {
+                    dialog.remove();
+                }, 500);
+            }, 1500);
+        });
+
+
+
+        const yesBtn = document.getElementById('yes-btn');
+        yesBtn.addEventListener('click', () => {
+            window.location.href = "wev.html";
+        });
+
+    </script>
+</body>
+
+</html>
