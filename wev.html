@@ -15,8 +15,8 @@
     <div id="movie-container">
         <h2>Help me plan it? You pick, pookie</h2>
         <form onsubmit="sendEmail(event)">
-            <label for="name">Your Name:</label>
-            <input type="text" id="name" name="name" value="c;" required><br><br>
+          <!-- <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" value="Bebi" required><br><br> -->
 
             <label>Choose a Movie:</label>
             <div class="dropdown-container">
@@ -93,7 +93,7 @@
             const message = document.getElementById("message").value;
 
             const subject = encodeURIComponent("Valentine's Choices from " + name);
-            const body = encodeURIComponent(`${name} here, let's watch ${movie} and eat ${food}\nOther Preferences: ${message}`);
+            const body = encodeURIComponent(`Let's watch ${movie} and eat ${food}\nOther Preferences: ${message}`);
 
             const mailtoLink = `mailto:ezzyllena@gmail.com?subject=${subject}&body=${body}`;
             window.location.href = mailtoLink;
